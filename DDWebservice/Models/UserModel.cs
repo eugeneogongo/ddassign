@@ -9,9 +9,11 @@ namespace DDWebservice.Models
 {
     public class UserModel
     {
-       [Required(ErrorMessage = "Email Address is Required")]
+       [Required]
       public  string Email { get; set; }
+      [Required]
       public string FirstName { get; set; }
+      [Required]
         public string FamilyName { get; set; }
     }
 }
