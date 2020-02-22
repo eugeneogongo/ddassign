@@ -42,7 +42,7 @@ namespace DDWebservice.Controllers
                     Code="500",
                     Message = e.Message
                 };
-                return Content(HttpStatusCode.OK, status, new JsonMediaTypeFormatter());
+                return Content(HttpStatusCode.BadRequest, status, new JsonMediaTypeFormatter());
             }
 
         }
@@ -69,7 +69,7 @@ namespace DDWebservice.Controllers
                 dict.Add("token", token);
                 return Content(HttpStatusCode.OK,dict, new JsonMediaTypeFormatter());
             }
-            return Content(HttpStatusCode.OK, new MessageStatus() { Code = "500", Message = "Login Failed" },
+            return Content(HttpStatusCode.BadRequest, new MessageStatus() { Code = "500", Message = "Login Failed" },
                 new JsonMediaTypeFormatter());
 
         }
