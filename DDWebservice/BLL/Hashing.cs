@@ -3,7 +3,7 @@
 /// The Hashing used is Bcryt
 /// More information can be found here: https://en.wikipedia.org/wiki/Bcrypt
 /// </summary>
-    public class Hashing
+    public static class Hashing
     {
         /// <summary>
         /// Generates a Random Hash
@@ -20,7 +20,7 @@
         /// <returns></returns>
         public static string HashPassword(string password)
         {
-            return BCrypt.Net.BCrypt.HashPassword(password, GenerateRandomSalt());
+            return BCrypt.Net.BCrypt.HashPassword(password.Trim(), GenerateRandomSalt());
         }
         /// <summary>
         /// Verify the hash
@@ -30,7 +30,7 @@
         /// <returns></returns>
         public static bool VerifyPassword(string password, string storedHash)
         {
-            return BCrypt.Net.BCrypt.Verify(password, storedHash);
+            return BCrypt.Net.BCrypt.Verify(password.Trim(), storedHash.Trim());
         }
     }
 }

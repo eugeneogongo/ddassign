@@ -2,7 +2,6 @@ using System;
 using System.Web.Http;
 using System.Web.Mvc;
 using DDWebservice.Areas.HelpPage.ModelDescriptions;
-using DDWebservice.Areas.HelpPage.Models;
 
 namespace DDWebservice.Areas.HelpPage.Controllers
 {
@@ -35,7 +34,7 @@ namespace DDWebservice.Areas.HelpPage.Controllers
         {
             if (!String.IsNullOrEmpty(apiId))
             {
-                HelpPageApiModel apiModel = Configuration.GetHelpPageApiModel(apiId);
+                var apiModel = Configuration.GetHelpPageApiModel(apiId);
                 if (apiModel != null)
                 {
                     return View(apiModel);
@@ -49,7 +48,7 @@ namespace DDWebservice.Areas.HelpPage.Controllers
         {
             if (!String.IsNullOrEmpty(modelName))
             {
-                ModelDescriptionGenerator modelDescriptionGenerator = Configuration.GetModelDescriptionGenerator();
+                var modelDescriptionGenerator = Configuration.GetModelDescriptionGenerator();
                 ModelDescription modelDescription;
                 if (modelDescriptionGenerator.GeneratedModels.TryGetValue(modelName, out modelDescription))
                 {
